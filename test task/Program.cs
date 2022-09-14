@@ -4,42 +4,47 @@
 лучше обойтись исключительно массивами.
 
 Примеры:
-[“Hello”, “2”, “world”, “:-)”] → [“2”, “:-)”]
-[“1234”, “1567”, “-2”, “computer science”] → [“-2”]
-[“Russia”, “Denmark”, “Kazan”] → []*/
+["Hello", "2", "world", ":-)"] → [“2”, “:-)”]
+["1234", "1567", "-2", "computer science"] → [“-2”]
+["Russia", "Denmark", "Kazan"] → []*/
 
 void PrintArr(string[] array)
 {
     Console.Write("[");
-    for (int i = 0; i < array.Length; i++)
+    if (array.Length == 0) Console.Write("]");
+    else
     {
-        if (i < array.Length - 1) Console.Write(array[i] + ", ");
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (i < array.Length - 1) Console.Write(array[i] + ", ");
+        }
+        Console.Write(array[array.Length - 1]);
+        Console.Write("]");
     }
-    Console.Write(array[array.Length - 1]);
-    Console.Write("]");
 }
 
-
-string[] arr = {"1234", "1567", "-2", "computer science"};
-int count = 0;
-int i  = 0;
-while(i<arr.Length)
+string[] ChangeArray(string[] array)
 {
-    if (arr[i].Length<=3)
+    int count = 0;
+    int i = 0;
+    while (i < array.Length)
     {
-        count++;
+        if (array[i].Length <= 3) count++;
+        i++;
     }
-    i++;
+    string[] newArray = new string[count];
+    int j = 0;
+    for (i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            newArray[j] = array[i];
+            j++;
+        }
+    }
+    return newArray;
 }
-string[] newArr = new string[count];
 
-int j = 0;
-for (i=0; i < arr.Length; i++)
-{
-    if(arr[i].Length<=3)
-    {
-        newArr[j] = arr[i];
-        j++;
-    }
-}
-PrintArr(newArr);
+string[] arr = { "Russia", "Denmark", "Kazan", "Hello", "1234", "1567", "-2", "computer science"};
+string[] result = ChangeArray(arr);
+PrintArr(result);
