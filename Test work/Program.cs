@@ -45,6 +45,6 @@ string[] ChangeArray(string[] array)
     return newArray;
 }
 
-string[] arr = { "Russia", "Denmark", "Kazan", "Hello", "1234", "1567", "-2", "computer science"};
+string[] arr = { "Hello", "2", "world", ":-)" };
 string[] result = ChangeArray(arr);
 PrintArr(result);
