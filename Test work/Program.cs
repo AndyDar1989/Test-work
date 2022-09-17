@@ -25,14 +25,14 @@ void PrintArr(string[] array)
 
 string[] ChangeArray(string[] array)
 {
-    int count = 0;
+    int size = 0;
     int i = 0;
     while (i < array.Length)
     {
-        if (array[i].Length <= 3) count++;
+        if (array[i].Length <= 3) size++;
         i++;
     }
-    string[] newArray = new string[count];
+    string[] newArray = new string[size];
     int j = 0;
     for (i = 0; i < array.Length; i++)
     {
